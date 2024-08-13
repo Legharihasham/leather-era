@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leather Era</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Moderustic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            width: 100%;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-image: url('/Pictures/header\ bg.jpg'); /* Add your background image path here */
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .logo h1 {
+            font-size: 36px;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: white; /* Ensure text is readable on the background */
+        }
+
+        .navigation ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navigation ul li {
+            margin: 0 15px;
+        }
+
+        .navigation ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .right-options {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .right-options span {
+            font-weight: bold;
+            color: white;
+        }
+
+        .right-options a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .bottom-bar {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            background-color: #f8f8f8;
+            border-top: 1px solid #eaeaea;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature img {
+            display: block;
+            margin: 0 auto 5px;
+        }
+
+        .feature p {
+            margin: 0;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .image-container {
+            margin: 20px 0;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+        }
+
+        .image-container img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            margin: 10px 0; /* Adding margin around each image */
+        }
+
+        .image-container:hover img,
+        .image-container:active img {
+            transform: scale(1.08);
+        }
+
+        .image-container:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (hover: none) {
+            .image-container img {
+                transform: none;
+            }
+
+            .image-container:active img {
+                transform: scale(1.08);
+            }
+        }
+
+        footer {
+            background-color: #ffffff;
+            color: #333333; /* Light black for general text */
+            padding: 20px 0; /* Reduced padding for a smaller footer */
+            text-align: left;
+            border-top: 1px solid #eaeaea;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px; /* Reduced gap between sections */
+            font-family: 'Nanum Myeongjo', serif;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px; /* Reduced minimum width for sections */
+            margin-bottom: 15px; /* Reduced bottom margin */
+        }
+
+        .footer-section h3 {
+            font-size: 16px; /* Reduced font size for headings */
+            margin-bottom: 15px; /* Reduced margin for spacing */
+            color: #333333; /* Light black */
+            font-weight: bold; /* Bold for headings */
+        }
+
+        .footer-section p, .footer-section ul, .footer-section form {
+            font-size: 13px; /* Reduced font size for text */
+            color: #333333; /* Light black */
+            font-weight: normal; /* Ensure these are not bold */
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px; /* Reduced margin for list items */
+        }
+
+        .footer-section ul li a {
+            color: #333333; /* Light black */
+            text-decoration: none;
+            font-weight: normal; /* Ensure these are not bold */
+            transition: color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .footer-section ul li a:hover {
+            color: #000000; /* Darker black */
+        }
+
+        .footer-section .social-icons {
+            display: flex;
+            gap: 15px; /* Reduced gap between icons */
+            margin-top: 10px;
+        }
+
+        .footer-section .social-icons a img {
+            width: 30px; /* Reduced width for social icons */
+            height: 30px; /* Reduced height for social icons */
+        }
+
+        .footer-section .newsletter form {
+            display: flex;
+            flex-direction: column;
+            gap: 8px; /* Reduced gap between form elements */
+        }
+
+        .footer-section .newsletter input[type="email"] {
+            padding: 8px; /* Reduced padding for input */
+            border: 1px solid #ddd; /* Light border for input */
+            border-radius: 5px;
+            color: #333333; /* Light black for text */
+        }
+
+        .footer-section .newsletter button {
+            padding: 8px; /* Reduced padding for button */
+            background-color: #f0c040;
+            border: none;
+            border-radius: 5px;
+            color: #333333; /* Light black for button text */
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .footer-section .newsletter button:hover {
+            background-color: #e0b030;
+            color: #000000; /* Darker black for button text on hover */
+        }
+
+        footer p {
+            margin-top: 15px; /* Reduced margin for paragraph */
+            font-size: 11px; /* Reduced font size for footer paragraph */
+            text-align: justify;
+            color: #333333; /* Light black */
+        }
+
+        .about-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px;
+            background-color: #ffffff;
+            font-family: 'New Amsterdam', cursive; /* Applying New Amsterdam font */
+        }
+
+        .about-section img {
+            width: 50%;
+            border-radius: 10px;
+        }
+        .about-section .text-content {
+            width: 45%;
+            padding-left: 50px;
+        }
+
+        .about-section .text-content h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .about-section .text-content p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="logo">
+                <h1>LEATHER ERA</h1>
+            </div>
+            <nav class="navigation">
+                <!-- Navigation items here -->
+            </nav>
+            <div class="right-options">
+                <a href="#">SEARCH</a>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <div class="feature">
+                <img src="Pictures/icon.png" alt="Icon" width="32" height="32">
+                <p>Premium Quality</p>
+            </div>
+            <div class="feature">
+                <img src="Pictures/shipping.png" alt="Icon" width="40" height="32">
+                <p>Fast Shipping</p>
+            </div>
+            <div class="feature">
+                <img src="Pictures/icon.png" alt="Icon" width="32" height="32">
+                <p>Pure Leather Products</p>
+            </div>
+        </div>
+    </header>
+
+    <center>
+        <img src="Pictures/Home page.png" alt="home" width="350" height="100">
+    </center>
+
+    <center>
+        <a href="jackets.html" class="image-container">
+            <img src="Pictures/jackets.png" alt="jackets" width="1000" height="300">
+        </a>
+    </center>
+
+    <center>
+        <a href="wallets.html" class="image-container">
+            <img src="Pictures/wallet.png" alt="wallet" width="1000" height="300">
+        </a>
+    </center>
+
+    <center>
+        <a href="belts.html" class="image-container">
+            <img src="Pictures/belts.png" alt="belts" width="1000" height="300">
+        </a>
+    </center>
+
+    <center>
+        <a href="custom.html" class="image-container">
+            <img src="Pictures/custom.png" alt="custom" width="1000" height="300">
+        </a>
+    </center>
+
+    <!-- New Section -->
+    <hr>
+    <div class="about-section">
+        <img src="Pictures/bag.jpg" alt="Leather Craft">
+        <div class="text-content">
+            <h2>FOR THE LOVE OF LEATHER</h2>
+            <p>Our enduring passion for natural leather prompted us to officially launch LEATHER ERA as a retailer of premium quality leather goods in Pakistan. The commitment to stay on the cutting edge is a combination of an innovating approach and our long heritage of leather & textile manufacturing, tracing the foundation back to a trading house of leather hides set up in the early 1900s.</p>
+        </div>
+    </div>
+    <hr>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>ABOUT THE SHOP</h3>
+                <p>At LEATHER ERA, a discerning clientele can choose from a wide variety of premium leather products in Pakistan and abroad. Be it a routine everyday item, a high-fashion accessory, or a business essential, we strive to offer something for everyone.</p>
+                <div class="social-icons">
+                    <a href="#"><img src="Pictures/fb.jpeg" alt="" width="100" height="50"></a>
+                    <a href="#"><img src="Pictures/insta.jpg" alt=""></a>
+                </div>
+            </div>
+            <div class="footer-section links">
+                <h3>INFORMATION</h3>
+                <ul>
+                    <li><a href="#">Stores</a></li>
+                    <li><a href="#">Track Your Order</a></li>
+                    <li><a href="#">Refund & Exchange Policy</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms and Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-section company">
+                <h3>OUR COMPANY</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section newsletter">
+                <h3>NEWSLETTER</h3>
+                <p>Subscribe to our Newsletter for updates,<br>access to exclusive offers & more</p>
+                <form>
+                    <input type="email" placeholder="Your email address">
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+        <p>&copy; 2024 LEATHER ERA. All Rights Reserved. Designed by LEATHER ERA</p>
+    </footer>
+</body>
+</html>
